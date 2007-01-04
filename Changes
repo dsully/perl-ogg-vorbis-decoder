@@ -1,0 +1,24 @@
+Revision history for Perl extension Ogg::Vorbis::Decoder.
+
+0.01  Fri Jan  3 17:33:52 2003
+	- original version; created by h2xs 1.21 with options
+		-XA -n Ogg::Vorbis::Decoder
+
+0.02  Sun Jan  5 08:41:45 CST 2003
+	- Fixed bugs in seek functions.
+    - Added typemap for ogg_int64_t which had been hiding def of
+      pcm_seek.
+    - Fixed typo in time_seek() which had it calling raw internally.
+    - Fixed =~/!~ typo in time_seek() which caused it to always fail.
+
+0.5  Wed Jan 21 17:56:23 PST 2004
+
+    - New maintainer, Dan Sully
+    - Convert to pure XS - no more Inline::C
+    - Allow open to take a IO::Handle subclass, or an existing FH* glob.
+    - Add comment/info functions to handle metadata from a stream.
+
+0.6  Tue Apr 13 23:27:53 PDT 2004
+
+    - Changes to compile under Win32 & MSVC++ 6.0
+    - Check for IO::Socket subclasses correctly.

@@ -1,0 +1,13 @@
+Changes
+Decoder.pm
+Decoder.xs
+Makefile.PL
+MANIFEST
+README
+TODO
+test.pl
+LICENSE.GPL
+test.ogg
+typemap
+examples/http-stream
+META.yml                                 Module meta-data (added by MakeMaker)
