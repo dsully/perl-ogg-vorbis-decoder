@@ -5,9 +5,23 @@ Makefile.PL
 MANIFEST
 README
 TODO
-test.pl
+data/test.ogg
+t/basic.t
+t/pod.t
+t/pod-coverage.t
 LICENSE.GPL
-test.ogg
 typemap
 examples/http-stream
-META.yml                                 Module meta-data (added by MakeMaker)
+META.yml
+inc/Module/Install.pm
+inc/Module/Install/Metadata.pm
+inc/Module/Install/Base.pm
+inc/Module/Install/Compiler.pm
+inc/Module/Install/Makefile.pm
+inc/Module/Install/AutoInstall.pm
+inc/Module/Install/Include.pm
+inc/Module/Install/WriteAll.pm
+inc/Module/Install/Win32.pm
+inc/Module/Install/Can.pm
+inc/Module/Install/Fetch.pm
+inc/Module/AutoInstall.pm

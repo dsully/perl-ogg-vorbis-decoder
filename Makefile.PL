@@ -1,20 +1,21 @@
-use ExtUtils::MakeMaker;
-use Config;
+# $Id: Makefile.PL 10 1998-12-16 23:02:45Z daniel $
 
-$LDDLFLAGS = '';
-$LDDLFLAGS = '-all_load' if $^O eq 'darwin';
-$LDDLFLAGS = '-L/usr/pkg/lib' if $^O eq 'netbsd';
+use inc::Module::Install;
+
+name('Ogg-Vorbis-Decoder');
+license('perl');
+perl_version('5.005');
+all_from('Decoder.pm');
 
 if ($^O =~ /win32/i) {
-        $LIBS = '-logg_static -lvorbis_static -lvorbisfile_static';
+
+	cc_lib_links(qw(ogg_static vorbis_static vorbisfile_static));
+
 } else {
-        $LIBS = '-logg -lvorbis -lvorbisfile';
+
+	cc_lib_links(qw(ogg vorbis vorbisfile));
+	cc_optimize_flags('-Wall');
 }
 
-WriteMakefile(
-	'NAME'		=> 'Ogg::Vorbis::Decoder',
-	'VERSION_FROM'	=> 'Decoder.pm',
-	'LIBS'		=> [$LIBS],
-	'DEFINE'	=> '-O',
-	'LDDLFLAGS'	=> "$Config{'lddlflags'} $LDDLFLAGS"
-);
+auto_install();
+WriteAll();

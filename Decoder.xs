@@ -276,12 +276,18 @@ read(obj, buffer, nbytes = 4096, word = 2, sgned = 1)
 	char *readBuffer = alloca(nbytes);
 
 	/* for replay gain */
-	float **pcm;
+	/* not yet.. */
+	int use_rg = 0;
+	float ***pcm;
 
 	HV *self = (HV *) SvRV(obj);
 	OggVorbis_File *vf = (OggVorbis_File *) SvIV(*(my_hv_fetch(self, "VFILE")));
 
 	if (!vf) XSRETURN_UNDEF;
+
+	if (ix) {
+		/* empty */
+	}
 
 	/* See http://www.xiph.org/ogg/vorbis/doc/vorbisfile/ov_read.html for
 	 * a description of the bitstream parameter. This allows streaming
@@ -301,7 +307,7 @@ read(obj, buffer, nbytes = 4096, word = 2, sgned = 1)
                 	bytes = ov_read_float(vf, pcm, nbytes, &cur_bitstream);
 
                 	if (bytes > 0) {
-                        	bytes = vorbis_process_replaygain(pcm, bytes, channels, readBuffer, rg_scale);
+                        	/* bytes = vorbis_process_replaygain(pcm, bytes, channels, readBuffer, rg_scale); */
 			}
 
 		} else {
@@ -396,7 +402,7 @@ DESTROY (obj)
 # description of the functions that duplicate the vorbisfile API.
 
 int
-raw_seek (obj, pos, whence)
+raw_seek (obj, pos, whence = 0)
 	SV* obj;
 	long pos;
 	int whence;
