@@ -194,7 +194,7 @@ open(class, path)
 	if (SvOK(path) && (SvTYPE(SvRV(path)) != SVt_PVGV)) {
 
 		if ((datasource->stream = PerlIO_open((char*)SvPV_nolen(path), "r")) == NULL) {
-			ov_clear(vf);
+			safefree(vf);
 			printf("failed on open: [%d] - [%s]\n", errno, strerror(errno));
 			XSRETURN_UNDEF;
 		}
