@@ -3,6 +3,7 @@ Decoder.pm
 Decoder.xs
 Makefile.PL
 MANIFEST
+MANIFEST.SKIP
 README
 TODO
 data/test.ogg
@@ -12,7 +13,6 @@ t/pod-coverage.t
 LICENSE.GPL
 typemap
 examples/http-stream
-META.yml
 inc/Module/Install.pm
 inc/Module/Install/Metadata.pm
 inc/Module/Install/Base.pm

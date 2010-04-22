@@ -278,7 +278,7 @@ read(obj, buffer, nbytes = 4096, word = 2, sgned = 1)
 	/* for replay gain */
 	/* not yet.. */
 	int use_rg = 0;
-	float ***pcm;
+	float ***pcm = NULL;
 
 	HV *self = (HV *) SvRV(obj);
 	OggVorbis_File *vf = (OggVorbis_File *) SvIV(*(my_hv_fetch(self, "VFILE")));
