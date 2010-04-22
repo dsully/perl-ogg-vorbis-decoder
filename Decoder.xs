@@ -81,7 +81,7 @@ static int ovcb_seek(void *vdatasource, ogg_int64_t offset, int whence) {
 
 	/* For some reason PerlIO_seek fails miserably here. < 5.8.1 works */
 	/* return PerlIO_seek(datasource->stream, offset, whence); */
-	
+
 	return fseek(PerlIO_findFILE(datasource->stream), offset, whence);
 }
 
@@ -226,7 +226,7 @@ open(class, path)
 
 		XSRETURN_UNDEF;
 	}
-	
+
 	if ((ret = ov_open_callbacks((void*)datasource, vf, NULL, 0, vorbis_callbacks)) < 0) {
 
 		warn("Failed on registering callbacks: [%d]\n", ret);
@@ -326,14 +326,14 @@ read(obj, buffer, nbytes = 4096, word = 2, sgned = 1)
 
 		} else if (bytes == OV_HOLE || bytes == OV_EBADLINK) {
 			/* error in stream, but we don't care, move along */
-			
+
 		} else if (bytes < 0 && errno == EINTR) {
 			/* try to re-read, same as above */
 
 		} else if (bytes < 0) {
 			/* error */
 			break;
-			
+
 		} else {
 
 			total_bytes_read += bytes;
@@ -410,7 +410,7 @@ raw_seek (obj, pos, whence = 0)
 	CODE:
 	HV *self = (HV *) SvRV(obj);
 	OggVorbis_File *vf = (OggVorbis_File *) SvIV(*(my_hv_fetch(self, "VFILE")));
-	
+
 	/* XXX - handle whence */
 	RETVAL = ov_raw_seek(vf, pos);
 

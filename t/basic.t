@@ -19,7 +19,7 @@ ok($ogg->seekable, 'seekable');
 ok($ogg->serialnumber, 'serialnumber');
 is($ogg->raw_total, 4418594, 'raw_total');
 ok($ogg->pcm_total, 'pcm_total');
-is($ogg->time_total, 187.146666666667, 'time_total');
+is($ogg->time_total, 187.14 + 2/300, 'time_total');
 ok($ogg->raw_tell, 'raw_tell');
 ok($ogg->pcm_tell, 'pcm_tell');
 ok($ogg->time_tell, 'time_tell');
