@@ -24,7 +24,7 @@
 #include <vorbis/vorbisfile.h>
 
 /* strlen the length automatically */
-#define my_hv_store(a,b,c)   hv_store(a,b,strlen(b),c,0)
+#define my_hv_store(a,b,c)   (void)hv_store(a,b,strlen(b),c,0)
 #define my_hv_fetch(a,b)     hv_fetch(a,b,strlen(b),0)
 
 #ifdef WORDS_BIGENDIAN
@@ -133,7 +133,7 @@ void __read_comments(HV *self, OggVorbis_File *vf) {
 			ta = newAV();
 			ts = newRV_noinc((SV*) ta);
 
-			hv_store(comments, vc->user_comments[i], half - vc->user_comments[i], ts, 0);
+			(void)hv_store(comments, vc->user_comments[i], half - vc->user_comments[i], ts, 0);
 
 		} else {
 
