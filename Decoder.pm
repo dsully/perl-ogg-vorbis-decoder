@@ -178,7 +178,7 @@ Dan Pemstein E<lt>dan@lcws.orgE<gt>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2004-2009, Dan Sully.  All Rights Reserved.
+Copyright (c) 2004-2010, Dan Sully.  All Rights Reserved.
 
 Copyright (c) 2003, Dan Pemstein.  All Rights Reserved.
 
